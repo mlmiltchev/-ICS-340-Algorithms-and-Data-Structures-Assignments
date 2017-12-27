@@ -1,0 +1,53 @@
+ln. 60
+The getHeaviestStack() method contains the dynamic programming (tabulation).
+The method is passed an ArrayList of type Box, sorted by base area.
+
+ln. 61-63
+First three integer arrays are created, weightArr, heightArr, and stackOrderArr.
+The size of the arrays is equal to the number of boxes that we are feeding the program.
+
+ln. 66-70
+weightArr and heightArr are initialized with the corresponding values of the boxes. eg, weightArr[0] contains the
+weight of the first box, heightArr[2] contains the height of the third box.
+stackOrderArr is initialized with each element's index being its value. eg, stackOrderArr[0] = 0
+The three arrays are initialized in this way as a base case. If it ends up that the heaviest stack is a stack of one,
+the arrays are set up so findMaxValues() still correctly finds the heaviest stack.
+
+ln. 73-74
+In the nested for loops, i represents the box at the top of the stack, and then is compared to j which
+represents all the other boxes that have the potential to be underneath i in the stack. (i < n and j < i)
+
+ln. 75-78
+They are compared in the following way:
+If i's width and depth are less than j's
+and i weight less than j
+and the weight of i + j is greater than the previous stack's weight where i is on top of the stack.
+
+ln. 79-81
+If all of the conditions are met, then the three arrays are updated.
+weightArr[i] holds the new stack weight.
+heightArr[i] holds the corresponding height.
+stackOrderArr[i] points to box j.
+
+ln. 87
+The findMaxValues() method finds the maximum weight in the weightArr and records the weight in max[0].
+It records the corresponding height from the heightArr into max[1].
+It records the index of the maximum weight into max[2].
+
+ln. 90
+The printStack() method takes the index stored in max[2] and uses it to print the top box from
+the listOfBoxes ArrayList. It then visits that index in stackOrderArr to find the next box's index.
+This loops until the weights of the boxes selected totals the maximum weight recorded in max[0].
+Then the maximum weight and height are printed.
+
+Resources used to make this program:
+General:
+http://www.geeksforgeeks.org/dynamic-programming-set-1/
+http://www.geeksforgeeks.org/longest-increasing-subsequence/
+http://www.geeksforgeeks.org/dynamic-programming-set-21-box-stacking-problem/
+
+Printing the final stack properly:
+https://www.youtube.com/watch?v=9mod_xRB-O0
+
+Javadocs formatting:
+http://www2.hawaii.edu/~tp_200/ics111/material/codingStandards.html
