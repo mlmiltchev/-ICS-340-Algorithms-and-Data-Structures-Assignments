@@ -1,0 +1,21 @@
+*What was the algorithm?
+The algorithm I used was an any conflict local search algorithm.
+
+*Why did you choose to use that / those algorithm(s)?
+I chose to use this algorithm because a project of this scale doesn't need a very complex
+algorithm behind it and any conflict local search is one of the easiest to implement.
+
+*Does your algorithm contain any randomness?  If so, when and how is the randomness used?
+Yes, quite a lot.
+95% of the time, the algorithm chooses a random course that breaks constraints. It then chooses a second
+random course with no consideration of broken constraints and swaps the two courses.
+5% of the time, the algorithm just swaps two random courses with no consideration of broken constraints.
+
+*What options did you consider and reject?
+Originally I didn't implement the 5% chance of swapping two random courses but I soon discovered that
+my program would get caught in an infinite loop when there was only one violated constraint left and no
+valid swap options to solve it. The 5% chance solves this issue, while keeping the speed of the program
+very fast.
+
+Resources used:
+https://en.wikipedia.org/wiki/Min-conflicts_algorithm
